@@ -1,11 +1,38 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Waktu Solat
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Kawasan</ion-label>
+        <ion-select [(ngModel)]="kodkawasan" placeholder="Buat pilihan...">
+        <ion-option *ngFor="let area of areaList" value="{{area.kod}}">{{area.nama}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <div padding>
+      <button ion-button block (click)="check()">Semak Waktu Solat</button>
+    </div>
+
+    <ion-card>
+      <ion-card-header>
+        <h2>Waktu Solat bagi kawasan {{kawasan}}</h2>
+        <h3>{{tarikh}}</h3>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Subuh: {{waktusolat.Subuh}}</p>
+        <p>Zohor: {{waktusolat.Zohor}}</p>
+        <p>Asar: {{waktusolat.Asar}}</p>
+        <p>Magrib: {{waktusolat.Maghrib}}</p>
+        <p>Isyak: {{waktusolat.Isyak}}</p>
+      </ion-card-content>
+    </ion-card>
 
 </ion-content>
